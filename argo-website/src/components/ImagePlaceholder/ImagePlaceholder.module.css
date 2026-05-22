@@ -1,0 +1,127 @@
+/* ============================================
+   ImagePlaceholder Component
+   统一图片占位组件 - 所有图片接口的基础
+   ============================================ */
+
+.imagePlaceholder {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    var(--color-deep-ocean-light) 0%,
+    rgba(197, 165, 90, 0.05) 50%,
+    var(--color-deep-ocean-light) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Aspect ratio variants */
+.ratio16x9 { aspect-ratio: 16 / 9; }
+.ratio4x3 { aspect-ratio: 4 / 3; }
+.ratio3x4 { aspect-ratio: 3 / 4; }
+.ratio1x1 { aspect-ratio: 1 / 1; }
+.ratio3x2 { aspect-ratio: 3 / 2; }
+.ratio2x3 { aspect-ratio: 2 / 3; }
+.ratioHero { aspect-ratio: 21 / 9; }
+.ratioFull { width: 100%; height: 100%; }
+
+/* Shimmer animation for loading state */
+.imagePlaceholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 165, 90, 0.03) 50%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Border accent */
+.imagePlaceholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border);
+  pointer-events: none;
+}
+
+/* Placeholder icon */
+.placeholderIcon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.15;
+  color: var(--color-ancient-gold);
+}
+
+/* Placeholder label */
+.placeholderLabel {
+  font-family: var(--font-body-en);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  max-width: 200px;
+  text-align: center;
+}
+
+/* When image is loaded */
+.imageLoaded {
+  background: none;
+}
+
+.imageLoaded::before,
+.imageLoaded::after {
+  display: none;
+}
+
+.actualImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-cinematic);
+}
+
+.actualImage.loaded {
+  opacity: 1;
+}
+
+/* Hover effect for interactive images */
+.interactive {
+  cursor: pointer;
+}
+
+.interactive .actualImage {
+  transition: opacity var(--duration-slow) var(--ease-cinematic),
+              transform var(--duration-slow) var(--ease-cinematic);
+}
+
+.interactive:hover .actualImage {
+  transform: scale(1.05);
+}
+
+/* Size variants */
+.sizeSmall .placeholderIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.sizeLarge .placeholderIcon {
+  width: 48px;
+  height: 48px;
+}
+
+.sizeLarge .placeholderLabel {
+  font-size: var(--text-sm);
+}

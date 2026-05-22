@@ -1,0 +1,82 @@
+/* Customization Page */
+.page { padding-top: 0; }
+
+.hero {
+  position: relative; height: 50vh; min-height: 350px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero > div:first-child { position: absolute; inset: 0; }
+.heroOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(10,14,23,0.4), rgba(10,14,23,0.85));
+  z-index: 1;
+}
+.heroContent { position: relative; z-index: 2; text-align: center; }
+.heroContent h1 {
+  font-family: var(--font-heading-cn); font-size: var(--text-display);
+  font-weight: 300; letter-spacing: 0.15em; margin: var(--space-md) 0 var(--space-sm);
+}
+.heroSub {
+  font-family: var(--font-heading-en); font-style: italic;
+  font-size: var(--text-lg); color: var(--color-text-secondary);
+}
+.heroSubCn {
+  font-family: var(--font-heading-cn); font-size: var(--text-base);
+  color: var(--color-ancient-gold-dim); margin-top: var(--space-sm);
+}
+
+.systemsSection { padding: var(--space-5xl) 0; }
+
+.systemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-xl);
+}
+
+.systemCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg-card);
+  transition: all var(--duration-medium) var(--ease-cinematic);
+}
+.systemCard:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.systemImage { position: relative; overflow: hidden; }
+.systemImageOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,14,23,0.4), transparent);
+}
+
+.systemInfo { padding: var(--space-xl); }
+.systemName {
+  font-family: var(--font-heading-en); font-size: var(--text-xl);
+  font-weight: 400; margin-bottom: 2px;
+}
+.systemNameCn {
+  font-family: var(--font-heading-cn); font-size: var(--text-sm);
+  color: var(--color-text-secondary); font-weight: 300;
+}
+.systemDivider {
+  width: 30px; height: 1px;
+  background: var(--color-ancient-gold-dim);
+  margin: var(--space-md) 0;
+}
+.systemItems { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.systemItem {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs); color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.systemDetailImages { display: none; }
+
+@media (max-width: 768px) {
+  .systemsGrid { grid-template-columns: 1fr; }
+}

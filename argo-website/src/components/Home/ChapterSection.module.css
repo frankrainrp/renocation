@@ -1,0 +1,314 @@
+/* ============================================
+   Chapter Section - Brand Story Chapters
+   品牌故事章节容器
+   ============================================ */
+
+.chapter {
+  position: relative;
+  min-height: 100vh;
+  padding: var(--space-5xl) 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background */
+.chapterBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.chapterBg > div:first-child {
+  width: 100%;
+  height: 100%;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 23, 0.75);
+  z-index: 1;
+}
+
+/* Content */
+.chapterContent {
+  position: relative;
+  z-index: 2;
+}
+
+/* Chapter Number */
+.chapterNumber {
+  margin-bottom: var(--space-2xl);
+}
+
+.chapterLabel {
+  font-family: var(--font-body-en);
+  font-size: var(--text-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.chapterNum {
+  font-family: var(--font-heading-en);
+  font-size: var(--text-7xl);
+  font-weight: 300;
+  background: linear-gradient(180deg, var(--color-ancient-gold), var(--color-ancient-gold-dim));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+/* Titles */
+.chapterTitles {
+  margin-bottom: var(--space-3xl);
+}
+
+.chapterTitleEn {
+  font-family: var(--font-heading-en);
+  font-size: var(--text-5xl);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  letter-spacing: 0.03em;
+  margin-bottom: var(--space-sm);
+}
+
+.chapterTitleCn {
+  font-family: var(--font-heading-cn);
+  font-size: var(--text-xl);
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.chapterDivider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-ancient-gold), transparent);
+  margin-top: var(--space-xl);
+}
+
+/* Content Grid */
+.chapterGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+
+/* Text */
+.chapterText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.chapterParagraph {
+  font-size: var(--text-lg);
+  line-height: 2;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+}
+
+/* Highlights */
+.highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-medium) var(--ease-cinematic);
+}
+
+.highlightItem:hover {
+  border-color: var(--color-ancient-gold-dim);
+  background: rgba(197, 165, 90, 0.03);
+}
+
+.highlightIcon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: var(--color-ancient-gold);
+}
+
+.highlightIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.highlightLabel {
+  font-family: var(--font-body-en);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Closing Quote */
+.closingQuote {
+  font-family: var(--font-heading-cn);
+  font-size: var(--text-2xl);
+  color: var(--color-ancient-gold);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-top: var(--space-2xl);
+  padding-left: var(--space-xl);
+  border-left: 2px solid var(--color-ancient-gold-dim);
+}
+
+/* CTAs */
+.chapterCtas {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+/* Images */
+.chapterImages {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.chapterImageWrapper {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Alignment Variants */
+.alignLeft .chapterDivider {
+  margin-left: 0;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.alignRight .chapterGrid {
+  direction: rtl;
+}
+
+.alignRight .chapterGrid > * {
+  direction: ltr;
+}
+
+.alignRight .chapterDivider {
+  margin-left: auto;
+  background: linear-gradient(90deg, transparent, var(--color-ancient-gold));
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignCenter .chapterDivider {
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, transparent, var(--color-ancient-gold), transparent);
+}
+
+.alignCenter .chapterGrid {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.alignCenter .chapterText {
+  align-items: center;
+}
+
+.alignCenter .chapterParagraph {
+  text-align: center;
+}
+
+.alignCenter .closingQuote {
+  border-left: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.alignCenter .chapterCtas {
+  justify-content: center;
+}
+
+.alignCenter .chapterImages {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 100%;
+}
+
+/* Chapter Transition */
+.chapterTransition {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.transitionLine {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--color-ancient-gold-dim));
+}
+
+.transitionDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-ancient-gold-dim);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .chapterGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  .alignRight .chapterGrid {
+    direction: ltr;
+  }
+  
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .chapter {
+    min-height: auto;
+    padding: var(--space-3xl) 0;
+  }
+  
+  .chapterNum {
+    font-size: var(--text-5xl);
+  }
+  
+  .chapterTitleEn {
+    font-size: var(--text-3xl);
+  }
+  
+  .chapterParagraph {
+    font-size: var(--text-base);
+  }
+  
+  .chapterCtas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

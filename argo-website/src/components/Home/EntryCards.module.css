@@ -1,0 +1,121 @@
+/* Entry Cards Section */
+.entrySection {
+  padding: var(--space-5xl) 0;
+  background: var(--color-bg-primary);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading-en);
+  font-size: var(--text-5xl);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: transform var(--duration-medium) var(--ease-cinematic);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  color: var(--color-text-primary);
+}
+
+.cardImage {
+  position: relative;
+  overflow: hidden;
+}
+
+.cardImage > div:first-child {
+  transition: transform var(--duration-slow) var(--ease-cinematic);
+}
+
+.card:hover .cardImage > div:first-child {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(10, 14, 23, 0.95) 0%,
+    rgba(10, 14, 23, 0.3) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-xl);
+  z-index: 2;
+}
+
+.cardNumber {
+  font-family: var(--font-heading-en);
+  font-size: var(--text-5xl);
+  font-weight: 300;
+  color: var(--color-ancient-gold-dim);
+  line-height: 1;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.cardTitle {
+  font-family: var(--font-heading-en);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+}
+
+.cardTitleCn {
+  font-family: var(--font-heading-cn);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  margin-bottom: var(--space-sm);
+}
+
+.cardDesc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.cardArrow {
+  font-size: var(--text-xl);
+  color: var(--color-ancient-gold);
+  transition: transform var(--duration-fast) var(--ease-smooth);
+  display: inline-block;
+}
+
+.card:hover .cardArrow {
+  transform: translateX(8px);
+}
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,72 @@
+/* Style Detail Page */
+.page { padding-top: 0; }
+.notFound {
+  min-height: 50vh; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading-en); font-size: var(--text-2xl);
+  color: var(--color-text-muted);
+}
+
+.hero {
+  position: relative; height: 100vh; min-height: 600px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero > div:first-child { position: absolute; inset: 0; }
+.heroOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,14,23,0.3) 0%, rgba(10,14,23,0.6) 60%, rgba(10,14,23,0.95) 100%);
+  z-index: 1;
+}
+.heroContent { position: relative; z-index: 2; text-align: center; }
+.heroContent h1 {
+  font-family: var(--font-heading-en); font-size: var(--text-display);
+  margin-bottom: var(--space-sm);
+}
+.heroCn {
+  font-family: var(--font-heading-cn); font-size: var(--text-2xl);
+  color: var(--color-text-secondary); font-weight: 300; letter-spacing: 0.15em;
+}
+.heroDivider {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-ancient-gold), transparent);
+  margin: var(--space-xl) auto;
+}
+.heroKeywords {
+  font-size: var(--text-base); color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* Gallery Sections */
+.gallerySection {
+  padding: var(--space-3xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.gallerySection:last-of-type { border-bottom: none; }
+
+.gallerySectionTitle {
+  font-family: var(--font-heading-en); font-size: var(--text-2xl);
+  font-weight: 400; margin-bottom: var(--space-xl);
+  color: var(--color-text-muted); letter-spacing: 0.08em;
+}
+
+.galleryGrid {
+  display: grid; gap: var(--space-lg);
+}
+.galleryItem {
+  border-radius: var(--radius-md); overflow: hidden;
+}
+
+/* Palette Section */
+.paletteSection {
+  padding: var(--space-3xl) 0;
+}
+
+/* Back Link */
+.backLink {
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .galleryGrid { grid-template-columns: 1fr !important; }
+}
